@@ -1,13 +1,20 @@
 #include <iostream>
 #include <iomanip>
-#define SIZE 10
+
 
 using namespace std;
 
 int main(int argc,char *argv[]){
   int *pa, *pb, i, temp;
-int a[SIZE] ={1,2,3,4,5,6,7,8,9,10}; 
-pa = &a[0]; //pa =a;
+  int SIZE = argc - 1; 
+  pa = new int[SIZE];
+for (i = 0; i < SIZE ; i ++)
+{
+  *pa = atoi(argv[i+1]);
+  *pa++;
+}
+*pa-=i;
+/*
 cout<<"Original: ";
 for (i=0; i<SIZE-1; i++ ,pa++){
    cout<<setw(3)<<*pa ;//<<endl;
@@ -17,6 +24,9 @@ cout<<setw(3)<<*pa<<endl;
 
 pa = &a[0];  
 pb = &a[SIZE-1];
+*/
+pb = new int[SIZE];
+pb+=i;
 for (i=0; i<SIZE/2; i++)
 {
    temp = *pa;  
@@ -24,8 +34,7 @@ for (i=0; i<SIZE/2; i++)
    *pb = temp;
    pa++;  pb--;
 }
-pa=&a[0];
-pb-=SIZE/2;
+pa-=i;
 cout<<"Reversed: ";
 for (i=0; i<SIZE-1; i++ ,pa++){
    cout<<setw(3)<<*pa ;//<<endl;
