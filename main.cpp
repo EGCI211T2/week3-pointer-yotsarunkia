@@ -12,11 +12,18 @@ int main(int argc, char *argv[])
   for (i = 0; i < SIZE; i++)
   {
     *pa = atoi(argv[i + 1]);
-    *pa++;
+    pa++;
     *pb = atoi(argv[i + 1]);
-    *pb++;
+    pb++;
   }
-  *pa -= i;
+  
+  pa -= i;
+  pb--;
+  for (i = 0; i < SIZE  ; i++)
+  {
+    cout << setw(3) << *pb;
+    pb--;
+  }
   for (i = 0; i < SIZE / 2; i++)
   {
     temp = *pa;
@@ -26,11 +33,12 @@ int main(int argc, char *argv[])
     pb--;
   }
   pa -= i;
-
-  for (i = 0; i < SIZE - 1; i++, pa++)
+/*
+  for (i = 0; i < SIZE ; i++)
   {
     cout << setw(3) << *pa;
+    pa++;
   }
-
+*/
   return 0;
 }
